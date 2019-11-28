@@ -1,10 +1,17 @@
 name: debug
 
-on: [push]
+# https://help.github.com/cn/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows
+on:
+  release:
+    types: [published]
+
+  push:
+    branches:
+      - master
+
 
 jobs:
   build:
-
     runs-on: ubuntu-18.04
 
     steps:

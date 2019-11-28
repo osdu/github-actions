@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v1
@@ -15,6 +15,17 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-            echo Add other actions to build,
-            echo test, and deploy your project.
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          mkdir -p artifact/dist
+          ls -l
+          ls -l > artifact/dist/list.txt
+          echo pwd: $(pwd)
+
+
+      - name : Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: artifact
+          path: artifact/dist
 

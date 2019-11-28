@@ -18,7 +18,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           mkdir -p artifact/dist
+          mkdir -p lean/packages
+          ln -sf lean/packages artifact/dist/diy-packages
           ls -l
+          ls -l artifact/dist/diy-packages
           ls -l > artifact/dist/list.txt
           echo pwd: $(pwd)
 
